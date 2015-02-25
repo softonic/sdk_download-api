@@ -1,7 +1,8 @@
 {
-    "name": "softonic/sdk_download_api",
+    "name": "softonic/download_api_sdk",
+    "type": "softonic-instance",
     "description": "Download API SDK",
-    "keywords": ["api", "download", "sdk"],
+    "keywords": ["download", "api", "sdk"],
     "version": "1.0.0",
     "homepage": "http://download.priv.sftapi.com",
     "repositories": [
