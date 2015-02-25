@@ -1,0 +1,30 @@
+{
+    "name": "softonic/sdk_download_api",
+    "description": "Download API SDK",
+    "keywords": ["api", "download", "sdk"],
+    "version": "1.0.0",
+    "homepage": "http://download.priv.sftapi.com",
+    "repositories": [
+        {
+            "packagist": false
+        },
+        {
+            "type": "composer",
+            "url": "http://satis.redtonic/softonic"
+        },
+        {
+            "type": "composer",
+            "url": "http://satis.redtonic/packagist"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Softonic\\DownloadApiInstance\\": "src/Softonic/DownloadApiInstance"
+        }
+    },
+    "require": {
+        "php": "5.3.*"
+    },
+    "minimum-stability": "stable"
+}
+
