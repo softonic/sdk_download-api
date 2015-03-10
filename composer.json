@@ -1,32 +1,36 @@
 {
-    "name": "softonic/download_api_sdk",
-    "type": "softonic-instance",
-    "description": "Download API SDK",
-    "keywords": ["download", "api", "sdk"],
-    "version": "1.0.2",
-    "homepage": "http://download.priv.sftapi.com",
-    "repositories": [
-        {
-            "packagist": false
-        },
-        {
-            "type": "composer",
-            "url": "http://satis.redtonic/softonic"
-        },
-        {
-            "type": "composer",
-            "url": "http://satis.redtonic/packagist"
-        }
-    ],
-    "autoload": {
-        "psr-4": {
-            "Softonic\\DownloadApiInstance\\": "src/Softonic/DownloadApiInstance"
-        }
+  "name": "softonic/download_api_sdk",
+  "type": "softonic-instance",
+  "description": "Download API SDK",
+  "keywords": [
+    "download",
+    "api",
+    "sdk"
+  ],
+  "version": "1.0.5",
+  "homepage": "http://download.priv.sftapi.com",
+  "repositories": [
+    {
+      "packagist": false
     },
-    "require": {
-        "php": "5.3.*",
-        "ext-curl": "*"
+    {
+      "type": "composer",
+      "url": "http://satis.redtonic/softonic"
     },
-    "minimum-stability": "stable"
+    {
+      "type": "composer",
+      "url": "http://satis.redtonic/packagist"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Softonic\\DownloadApiInstance\\": "src/Softonic/DownloadApiInstance"
+    }
+  },
+  "require": {
+    "php": "5.3.*",
+    "ext-curl": "*"
+  },
+  "minimum-stability": "stable"
 }
 
