@@ -9,8 +9,10 @@ use Softonic\DownloadApiInstance\Sdk\Exceptions\MalformedResponseException;
 use Softonic\DownloadApiInstance\Sdk\Exceptions\NotFoundException;
 use Softonic\DownloadApiInstance\Sdk\Exceptions\TimeoutException;
 use Softonic\DownloadApiInstance\Sdk\Exceptions\UnexpectedResponseException;
+use Psr\Log\LoggerAwareInterface;
+use Psr\Log\LoggerInterface;
 
-class ApiClient implements ApiClientInterface
+class ApiClient implements ApiClientInterface, LoggerAwareInterface
 {
     const QUERY_TIMEOUT = 5;
     public static $POST = "POST";
@@ -20,14 +22,17 @@ class ApiClient implements ApiClientInterface
     public static $DELETE = "DELETE";
 
     private $base_url;
+    private $logger;
 
 
     /**
      * @param string $base_url the address of the API server
+     * @param LoggerInterface $logger Used to log the exceptions thrown.
      */
-    function __construct($base_url = null)
+    function __construct($base_url = null, LoggerInterface $logger = null)
     {
         $this->base_url = $base_url;
+        $this->logger   = $logger;
     }
 
     /**
@@ -38,6 +43,17 @@ class ApiClient implements ApiClientInterface
         $this->base_url = $base_url;
     }
 
+    /**
+     * Sets a logger instance on the object.
+     *
+     * @param LoggerInterface $logger
+     *
+     * @return null
+     */
+    public function setLogger(LoggerInterface $logger)
+    {
+        $this->logger = $logger;
+    }
 
     /**
      * @param string $resource_path path to method endpoint
@@ -114,23 +130,57 @@ class ApiClient implements ApiClientInterface
             case 200:
                 $data = json_decode($response, true);
                 if (json_last_error() != JSON_ERROR_NONE) {
+                    $this->logError(array(
+                        'exception' => __NAMESPACE__ . '\Exceptions\MalformedResponseException',
+                        'message'   => 'Error during decoding response: ' . json_last_error(),
+                        'url'       => $url,
+                        'data'      => $post_data,
+                    ));
                     throw new MalformedResponseException('Error during decoding response: ' . json_last_error());
                 }
 
                 return $data;
 
             case 0:
+                $this->logError(array(
+                    'exception' => __NAMESPACE__ . '\Exceptions\TimeoutException',
+                    'message'   => 'TIMEOUT: api call to ' . $url . ' took more than '.self::QUERY_TIMEOUT.'s to return',
+                    'url'       => $url,
+                    'data'      => $post_data,
+                ));
+
                 throw new TimeoutException(
                     'TIMEOUT: api call to ' . $url . ' took more than '.self::QUERY_TIMEOUT.'s to return'
                 );
 
             case 400:
+                $this->logError(array(
+                    'exception' => __NAMESPACE__ . '\Exceptions\BadRequestException',
+                    'message'   => 'Unauthorized API request to ' . $url,
+                    'url'       => $url,
+                    'data'      => $post_data,
+                ));
+
                 throw new BadRequestException('Unauthorized API request to ' . $url);
 
             case 404:
+                $this->logError(array(
+                    'exception' => __NAMESPACE__ . '\Exceptions\NotFoundException',
+                    'message'   => 'Resource not found ' . $url,
+                    'url'       => $url,
+                    'data'      => $post_data,
+                ));
+
                 throw new NotFoundException('Resource not found ' . $url);
 
             default:
+                $this->logError(array(
+                    'exception' => __NAMESPACE__ . '\Exceptions\UnexpectedResponseException',
+                    'message'   => 'Unexpected error', $response_info['http_code'],
+                    'url'       => $url,
+                    'data'      => $post_data,
+                ));
+
                 throw new UnexpectedResponseException('Unexpected error', $response_info['http_code']);
 
         }
@@ -167,6 +217,19 @@ class ApiClient implements ApiClientInterface
         }
 
         return $sanitized;
+    }
+
+    /**
+     * Logs the error.
+     *
+     * @param array $context Context for the message.
+     */
+    protected function logError(array $context)
+    {
+        if ( $this->logger )
+        {
+            $this->logger->error('[{exception}] {message} | Url:{url} Data:{data}', $context);
+        }
     }
 
     /**
