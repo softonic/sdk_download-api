@@ -1,37 +1,37 @@
 {
-  "name": "softonic/download_api_sdk",
-  "type": "softonic-instance",
-  "description": "Download API SDK",
-  "keywords": [
-    "download",
-    "api",
-    "sdk"
-  ],
-  "version": "1.0.11",
-  "homepage": "http://download.priv.sftapi.com",
-  "repositories": [
-    {
-      "packagist": false
+    "name": "softonic/download_api_sdk",
+    "type": "library",
+    "description": "Download API SDK",
+    "keywords": [
+        "swagger",
+        "php",
+        "sdk",
+        "api"
+    ],
+    "version": "2.0.89",
+    "homepage": "http://download.priv.sftapi.com",
+    "license": "Apache v2",
+    "authors": [
+        {
+            "name": "Swagger and contributors",
+            "homepage": "https://github.com/swagger-api/swagger-codegen"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*"
     },
-    {
-      "type": "composer",
-      "url": "http://satis.redtonic/softonic"
+    "require-dev": {
+        "phpunit/phpunit": "~4.8",
+        "satooshi/php-coveralls": "~1.0",
+        "squizlabs/php_codesniffer": "~2.6"
     },
-    {
-      "type": "composer",
-      "url": "http://satis.redtonic/packagist"
+    "autoload": {
+        "psr-4": { "Softonic\\DownloadApiSdk\\" : "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Softonic\\DownloadApiSdk\\" : "test/" }
     }
-  ],
-  "autoload": {
-    "psr-4": {
-      "Softonic\\DownloadApiInstance\\": "src/Softonic/DownloadApiInstance"
-    }
-  },
-  "require": {
-    "php": "5.3.*",
-    "ext-curl": "*",
-	"psr/log": "*"
-  },
-  "minimum-stability": "stable"
 }
-
