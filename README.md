@@ -59,7 +59,7 @@ Please follow the [installation procedure](#installation--usage) and then run th
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$api_instance = new Softonic\DownloadApiSdk\Api\FilesApi();
+$api_instance = new Softonic\DownloadApiSdk\Client\Api\FilesApi();
 $id_files = "id_files_example"; // string | SHA-1 hash that identifies a file
 $country = "country_example"; // string | The country from where the request is being done, used to sort download URL list
 $extra = "extra_example"; // string | Associative array of parameters serialized and encoded in base64
