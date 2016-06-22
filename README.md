@@ -96,6 +96,6 @@ Class | Method | HTTP request | Description
 
 ## Author
 
-XXXXXXXXX@softonic.com
+josemanuel.cardona@softonic.com
 
 
