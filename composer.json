@@ -1,15 +1,14 @@
 {
     "name": "softonic/download_api_sdk",
-    "type": "library",
-    "description": "Download API SDK",
+    "version": "v2.0.96",
+    "description": "",
     "keywords": [
         "swagger",
         "php",
         "sdk",
         "api"
     ],
-    "version": "2.0.89",
-    "homepage": "http://download.priv.sftapi.com",
+    "homepage": "http://swagger.io",
     "license": "Apache v2",
     "authors": [
         {

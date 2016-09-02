@@ -1,6 +1,6 @@
 # Softonic\DownloadApiSdk\FilesUrlsApi
 
-All URIs are relative to *http://download.priv.sftapi.com*
+All URIs are relative to *https://download.sftapi.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **findFileUrl**
-> \Softonic\DownloadApiSdk\Client\Model\FileUrl[] findFileUrl($id_files, $country, $extra, $best)
+> \Softonic\DownloadApiSdk\Model\FileUrl[] findFileUrl($id_files, $country, $extra, $best)
 
 List of FileUrls
 
@@ -18,6 +18,15 @@ List of FileUrls
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: download_api_access_code
+Softonic\DownloadApiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure OAuth2 access token for authorization: download_api_implicit
+Softonic\DownloadApiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure OAuth2 access token for authorization: download_api_application
+Softonic\DownloadApiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure OAuth2 access token for authorization: download_api_password
+Softonic\DownloadApiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new Softonic\DownloadApiSdk\Api\FilesUrlsApi();
 $id_files = "id_files_example"; // string | SHA-1 hash that identifies a file
@@ -45,11 +54,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Softonic\DownloadApiSdk\Client\Model\FileUrl[]**](../Model/FileUrl.md)
+[**\Softonic\DownloadApiSdk\Model\FileUrl[]**](../Model/FileUrl.md)
 
 ### Authorization
 
-No authorization required
+[download_api_access_code](../../README.md#download_api_access_code), [download_api_implicit](../../README.md#download_api_implicit), [download_api_application](../../README.md#download_api_application), [download_api_password](../../README.md#download_api_password)
 
 ### HTTP request headers
 

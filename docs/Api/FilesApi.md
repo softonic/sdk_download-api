@@ -1,6 +1,6 @@
 # Softonic\DownloadApiSdk\FilesApi
 
-All URIs are relative to *http://download.priv.sftapi.com*
+All URIs are relative to *https://download.sftapi.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **readFile**
-> \Softonic\DownloadApiSdk\Client\Model\File readFile($id_files, $country, $extra)
+> \Softonic\DownloadApiSdk\Model\File readFile($id_files, $country, $extra)
 
 Fetches a single File
 
@@ -18,6 +18,15 @@ Fetches a single File
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: download_api_access_code
+Softonic\DownloadApiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure OAuth2 access token for authorization: download_api_implicit
+Softonic\DownloadApiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure OAuth2 access token for authorization: download_api_application
+Softonic\DownloadApiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure OAuth2 access token for authorization: download_api_password
+Softonic\DownloadApiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 $api_instance = new Softonic\DownloadApiSdk\Api\FilesApi();
 $id_files = "id_files_example"; // string | SHA-1 hash that identifies a file
@@ -43,11 +52,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Softonic\DownloadApiSdk\Client\Model\File**](../Model/File.md)
+[**\Softonic\DownloadApiSdk\Model\File**](../Model/File.md)
 
 ### Authorization
 
-No authorization required
+[download_api_access_code](../../README.md#download_api_access_code), [download_api_implicit](../../README.md#download_api_implicit), [download_api_application](../../README.md#download_api_application), [download_api_password](../../README.md#download_api_password)
 
 ### HTTP request headers
 
