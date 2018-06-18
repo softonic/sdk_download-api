@@ -139,6 +139,7 @@ class FileUrl implements ArrayAccess
     const ID_CDN_AMAZONS3 = 'amazons3';
     const ID_CDN_CLOUDFRONT = 'cloudfront';
     const ID_CDN_LEASEWEB = 'leaseweb';
+    const ID_CDN_FASTLY = 'fastly';
     const CDN_DESTINATION_PROGRAM_PRIVATE = 'program_private';
     const CDN_DESTINATION_PROGRAM_PRIVATE_STAGING = 'program_private_staging';
     const CDN_DESTINATION_PROGRAM_PRIVATE_INTEGRATION = 'program_private_integration';
@@ -161,6 +162,7 @@ class FileUrl implements ArrayAccess
             self::ID_CDN_AMAZONS3,
             self::ID_CDN_CLOUDFRONT,
             self::ID_CDN_LEASEWEB,
+            self::ID_CDN_FASTLY,
         ];
     }
     
