@@ -1,6 +1,6 @@
 # Softonic\DownloadApiSdk\FilesApi
 
-All URIs are relative to *https://download.sftapi.com*
+All URIs are relative to *https://download-v2.eu-west.sftapi.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
