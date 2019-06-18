@@ -184,6 +184,7 @@ class FileUrl implements ModelInterface, ArrayAccess, JsonSerializable
     const ID_CDN_LEASEWEB = 'leaseweb';
     const ID_CDN_FASTLY = 'fastly';
     const CDN_DESTINATION_PROGRAM_PRIVATE = 'program_private';
+    const CDN_DESTINATION_PROGRAM_PRIVATE_BATCH = 'program_private_batch';
     const CDN_DESTINATION_PROGRAM_PRIVATE_STAGING = 'program_private_staging';
     const CDN_DESTINATION_PROGRAM_PRIVATE_INTEGRATION = 'program_private_integration';
     const CDN_DESTINATION_PROGRAM_PRIVATE_DEVELOPMENT = 'program_private_development';
@@ -219,6 +220,7 @@ class FileUrl implements ModelInterface, ArrayAccess, JsonSerializable
     {
         return [
             self::CDN_DESTINATION_PROGRAM_PRIVATE,
+            self::CDN_DESTINATION_PROGRAM_PRIVATE_BATCH,
             self::CDN_DESTINATION_PROGRAM_PRIVATE_STAGING,
             self::CDN_DESTINATION_PROGRAM_PRIVATE_INTEGRATION,
             self::CDN_DESTINATION_PROGRAM_PRIVATE_DEVELOPMENT,
