@@ -1,6 +1,6 @@
 # Softonic\DownloadApiSdk\FilesApi
 
-All URIs are relative to *https://download.sftapi.com*
+All URIs are relative to *https://download-v2.eu-west.sftapi.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -20,21 +20,26 @@ Fetches a single File
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: download_api_access_code
-Softonic\DownloadApiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Softonic\DownloadApiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure OAuth2 access token for authorization: download_api_application
-Softonic\DownloadApiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Softonic\DownloadApiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure OAuth2 access token for authorization: download_api_implicit
-Softonic\DownloadApiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Softonic\DownloadApiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 // Configure OAuth2 access token for authorization: download_api_password
-Softonic\DownloadApiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = Softonic\DownloadApiSdk\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-$api_instance = new Softonic\DownloadApiSdk\Api\FilesApi();
+$apiInstance = new Softonic\DownloadApiSdk\Api\FilesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id_files = "id_files_example"; // string | SHA-1 hash that identifies a file
 $country = "country_example"; // string | The country from where the request is being done, used to sort download URL list
 $extra = "extra_example"; // string | Associative array of parameters serialized and encoded in base64
 
 try {
-    $result = $api_instance->readFile($id_files, $country, $extra);
+    $result = $apiInstance->readFile($id_files, $country, $extra);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FilesApi->readFile: ', $e->getMessage(), PHP_EOL;
