@@ -183,6 +183,7 @@ class FileUrl implements ModelInterface, ArrayAccess, JsonSerializable
     const ID_CDN_CLOUDFRONT = 'cloudfront';
     const ID_CDN_FASTLY = 'fastly';
     const ID_CDN_STACKPATH = 'stackpath';
+    const CDN_DESTINATION_PROGRAM = 'program';
     const CDN_DESTINATION_PROGRAM_PRIVATE = 'program_private';
     const CDN_DESTINATION_PROGRAM_PRIVATE_BATCH = 'program_private_batch';
     const CDN_DESTINATION_PROGRAM_PRIVATE_STAGING = 'program_private_staging';
@@ -219,6 +220,7 @@ class FileUrl implements ModelInterface, ArrayAccess, JsonSerializable
     public function getCdnDestinationAllowableValues()
     {
         return [
+            self::CDN_DESTINATION_PROGRAM,
             self::CDN_DESTINATION_PROGRAM_PRIVATE,
             self::CDN_DESTINATION_PROGRAM_PRIVATE_BATCH,
             self::CDN_DESTINATION_PROGRAM_PRIVATE_STAGING,
